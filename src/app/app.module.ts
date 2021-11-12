@@ -20,6 +20,7 @@ import { HttpClientModule } from '@angular/common/http';
     LayoutModule,
     UsersModule,
     HttpClientModule,
+ 
     BrowserAnimationsModule
   ],
   providers: [],
