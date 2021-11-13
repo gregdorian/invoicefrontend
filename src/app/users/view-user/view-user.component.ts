@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-view-user',
@@ -7,9 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ViewUserComponent implements OnInit {
 
-  constructor() { }
+  userId: string ='';
+  userDetails: any;
+  constructor(private userService: UserService, private activedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
+      
+    this.activedRoute.params.subscribe(data => {
+      this.userId = data['id'] //['id'];//check this out
+    });
+
+    this.userService.viewUser(this.userId).subscribe(data => {
+      this.userDetails = data;
+    });
   }
 
 }

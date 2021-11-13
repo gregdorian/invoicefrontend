@@ -13,4 +13,8 @@ export class UserService {
     return this.httpc.get(this.baseUrl +'users');
 
   }
+
+  viewUser(id: string){
+    return this.httpc.get(this.baseUrl + 'users/' + id)
+  }
 }
